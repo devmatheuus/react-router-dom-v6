@@ -1,8 +1,8 @@
 import './style.css';
 
-import { useParams, useSearchParams } from 'react-router-dom';
+import { Outlet, useParams, useSearchParams } from 'react-router-dom';
 
-export const Post = () => {
+export const Posts = () => {
   const { id } = useParams();
 
   const [queryState, setQueryState] = useSearchParams();
@@ -12,6 +12,7 @@ export const Post = () => {
       <h1>
         Post id: {id && id} QS:{queryState && queryState.get('page')}
       </h1>
+      <Outlet />
     </div>
   );
 };
